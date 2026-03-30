@@ -1,4 +1,20 @@
 import css from '@/app/HomePage.module.css';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Page not found | NoteHub',
+  description: 'This page does not exist',
+  openGraph: {
+    title: 'Page not found | NoteHub',
+    description: 'This page does not exist',
+    url: 'https://your-site.com/not-found',
+    images: [
+      {
+        url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',
+      },
+    ],
+  },
+};
 
 const NotFound = () => {
   return (

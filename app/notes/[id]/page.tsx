@@ -6,9 +6,31 @@ import {
   HydrationBoundary,
   QueryClient,
 } from '@tanstack/react-query';
+import { Metadata } from 'next';
 type Props = {
   params: Promise<{ id: string }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params;
+  const note = await fetchNoteById(id);
+  console.log(note);
+
+  return {
+    title: note.title,
+    description: note.content.slice(0, 100),
+    openGraph: {
+      title: note.title,
+      description: note.content.slice(0, 100),
+      url: `http://localhost:3000/notes/${id}`,
+      images: [
+        {
+          url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',
+        },
+      ],
+    },
+  };
+}
 const NoteDetail = async ({ params }: Props) => {
   const { id } = await params;
 
