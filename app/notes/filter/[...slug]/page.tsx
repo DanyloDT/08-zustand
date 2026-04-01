@@ -14,6 +14,9 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const filter = slug[0];
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
+  console.log(baseUrl);
 
   return {
     title: `Notes filtered by ${filter} | NoteHub`,
