@@ -5,7 +5,7 @@ import { useMutation } from '@tanstack/react-query';
 import { createNote } from '../../lib/api';
 import type { NoteTag } from '../../types/note';
 import { useRouter } from 'next/navigation';
-import { useNoteStore } from '@/lib/stores/noteStore';
+import { useNoteStore } from '@/lib/store/noteStore';
 
 const NoteForm = () => {
   const router = useRouter();
